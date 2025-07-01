@@ -162,7 +162,7 @@ body {
   background-repeat: no-repeat;
   background-position: right center; /* Gambar tetap di kanan */
   background-size: contain;
-  padding: 14rem 5%;
+  padding: 12rem 5%;
 }
 
 .hero-box {
@@ -253,7 +253,7 @@ body {
    Tentang Kami - Responsive Improvements
 ======================= */
 .tentang-kami {
-  padding: 12rem 2rem;
+  padding: 8rem 2rem;
   background-color: #ffffff;
   background-image: url('/Prev Img/Tentang\ kami\ BG.png');
   background-repeat: no-repeat;
@@ -351,7 +351,7 @@ body {
    Layanan Kami - Responsive Improvements
 ======================= */
 .layanan {
-  padding: 6rem 1rem;
+  padding: 4rem 1rem;
   background-color: #f2f2f2;
   text-align: center;
   display: flex;
@@ -431,7 +431,7 @@ body {
    Kontak Kami - Responsive Improvements
 ======================= */
 .kontak-kami {
-  padding: 6rem 1rem;
+  padding: 4rem 1rem 1rem 1rem;
   background-color: #ffffff;
 }
 
