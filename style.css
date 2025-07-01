@@ -19,7 +19,7 @@ body {
 }
 
 /* =======================
-   Navbar
+   Navbar - Responsive Improvements
 ======================= */
 .navbar {
   position: fixed;
@@ -87,7 +87,6 @@ body {
   border-color: orangered;
 }
 
-/* Awalnya sembunyi */
 .dropdown-menu {
   display: none;
   position: absolute;
@@ -101,7 +100,6 @@ body {
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Tampilkan saat hover */
 .dropdown-bahasa:hover .dropdown-menu {
   display: block;
 }
@@ -118,48 +116,71 @@ body {
   background-color: #f0f0f0;
 }
 
-
+/* Mobile Navbar */
 @media (max-width: 768px) {
-  .nav-links {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    padding-top: 1rem;
-  }
-
   .nav-container {
     flex-direction: column;
     align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    width: 100%;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    display: none; /* Hidden by default */
+  }
+
+  .nav-links.active {
+    display: flex; /* Show when menu is toggled */
+  }
+
+  .dropdown-menu {
+    position: static;
+    display: none;
+    width: 100%;
+    box-shadow: none;
+    border: none;
+  }
+
+  .dropdown-bahasa:hover .dropdown-menu {
+    display: none;
+  }
+
+  .dropdown-bahasa.active .dropdown-menu {
+    display: block;
   }
 }
 
 /* =======================
-   Hero Section
+   Hero Section - Responsive Improvements
 ======================= */
 .hero-new {
-  background-color: #dcdcdc; /* abu-abu terang */
+  background-color: #dcdcdc;
   background-image: url('/Prev Img/Hero\ Section3.png');
   background-repeat: no-repeat;
-  background-position: right center;
+  background-position: right center; /* Gambar tetap di kanan */
   background-size: contain;
   padding: 14rem 5%;
-  font-family: "Segoe UI", sans-serif;
 }
 
 .hero-box {
   display: flex;
   max-width: 1200px;
-  margin: left 15px;
+  margin: 0 auto; /* Ubah dari margin: left 15px */
   align-items: center;
+  justify-content: flex-start; /* Tambahkan ini untuk mengarahkan konten ke kiri */
 }
 
 .hero-text {
   background-color: #e17835;
   padding: 3rem;
   border-radius: 16px;
-  flex: 1;
   color: white;
   max-width: 600px;
+  margin-left: 0; /* Pastikan tidak ada margin kiri */
+  margin-right: auto; /* Dorong ke kiri */
 }
 
 .hero-text h1 {
@@ -170,14 +191,14 @@ body {
 }
 
 .hero-text h2 {
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1rem;
   color: black;
 }
 
 .hero-text p {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   margin-bottom: 2rem;
   color: white;
 }
@@ -190,15 +211,46 @@ body {
   border-radius: 50px;
   text-decoration: none;
   transition: background 300ms;
+  display: inline-block;
 }
 
 .cta-button:hover {
   background-color: #f1f1f1;
 }
 
+@media (max-width: 992px) {
+  .hero-new {
+    padding: 6rem 5%;
+    background-size: cover;
+  }
+
+  .hero-text h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-new {
+    padding: 4rem 5%;
+    background-image: none;
+  }
+
+  .hero-box {
+    flex-direction: column;
+  }
+
+  .hero-text {
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  .hero-text h2 {
+    font-size: 1.6rem;
+  }
+}
 
 /* =======================
-   Tentang Kami
+   Tentang Kami - Responsive Improvements
 ======================= */
 .tentang-kami {
   padding: 12rem 2rem;
@@ -228,14 +280,12 @@ body {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #191919;
-  font-family: "Segoe UI", sans-serif;
 }
 
 .tentang-text p {
   font-size: 1.1rem;
   color: #444;
   line-height: 1.6;
-  font-family: "Segoe UI", sans-serif;
 }
 
 .tentang-image {
@@ -250,31 +300,16 @@ body {
   border-radius: 12px;
 }
 
-
-.visi-misi {
-  padding: 4rem 2rem;
-  background-color: #f9f9f9;
-}
-
-.visi-misi-title {
-  text-align: center;
-  margin-bottom: 2.5rem;
-}
-
-.visi-misi-title h2 {
-  font-size: 2rem;
-  font-family: "Segoe UI", sans-serif;
-  color: #222;
-  border-bottom: 3px solid orangered;
-  display: inline-block;
-  padding-bottom: 0.5rem;
-}
-
 .visi-misi-boxes {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
+  margin-top: 3rem;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 2rem;
 }
 
 .box {
@@ -290,34 +325,33 @@ body {
   font-size: 1.5rem;
   color: orangered;
   margin-bottom: 1rem;
-  font-family: "Segoe UI", sans-serif;
 }
 
-.box p, .box li {
+.box p {
   color: #444;
   font-size: 1rem;
   line-height: 1.6;
-  font-family: "Segoe UI", sans-serif;
 }
 
-.box ul {
-  padding-left: 1.2rem;
-  margin: 0;
-}
+@media (max-width: 768px) {
+  .tentang-kami {
+    padding: 4rem 1rem;
+  }
 
-.visi-misi-boxes {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 3rem;
+  .tentang-container {
+    gap: 2rem;
+  }
+
+  .box {
+    padding: 1.5rem;
+  }
 }
 
 /* =======================
-   Layanan Kami
+   Layanan Kami - Responsive Improvements
 ======================= */
 .layanan {
-  padding: 14rem 2rem;
+  padding: 6rem 1rem;
   background-color: #f2f2f2;
   text-align: center;
   display: flex;
@@ -329,39 +363,37 @@ body {
   background-size: cover;
 }
 
-.layanan h2 {
+.judul-layanan {
   font-size: 2rem;
   margin-bottom: 2rem;
-  font-family: "Segoe UI", sans-serif;
 }
 
 .layanan-container {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 2rem;
-  padding: 2rem;
-  overflow-x: visible;
+  padding: 1rem;
   margin-top: 2rem;
-  align-items: stretch; /* Semua box punya tinggi yang sama */
+  max-width: 1200px;
 }
 
 .layanan-box {
   background-color: #ffe6c7;
   border-radius: 20px;
-  padding: 5rem 1.5rem 2rem 1.5rem; /* ruang atas lebih tinggi buat gambar */
-  width: 250px;
+  padding: 5rem 1.5rem 2rem;
+  width: 100%;
+  max-width: 250px;
   min-height: 300px;
   position: relative;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .layanan-box img {
   width: 100px;
   height: 100px;
   object-fit: cover;
-  border-radius: 50%; /* Kalau mau kotak biasa, ganti jadi 12px */
+  border-radius: 50%;
   position: absolute;
   top: -50px;
   left: 50%;
@@ -373,7 +405,6 @@ body {
 .layanan-box h3 {
   margin-top: 1px;
   font-size: 1.1rem;
-  font-family: "Segoe UI", sans-serif;
   text-align: center;
 }
 
@@ -381,26 +412,34 @@ body {
   margin-top: 0.8rem;
   font-size: 0.95rem;
   color: #333;
-  font-family: "Segoe UI", sans-serif;
   line-height: 1.4;
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .layanan {
+    padding: 4rem 1rem;
+  }
+
+  .layanan-box {
+    max-width: 100%;
+    min-width: 200px;
+  }
+}
 
 /* =======================
-   Kontak Kami
+   Kontak Kami - Responsive Improvements
 ======================= */
 .kontak-kami {
-  padding: 4rem 4rem;
+  padding: 6rem 1rem;
   background-color: #ffffff;
 }
 
 .section-title {
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
+  font-size: 2rem;
+  margin-bottom: 2rem;
   text-align: center;
   color: #222;
-  font-family: "Segoe UI", sans-serif;
 }
 
 .kontak-container {
@@ -409,6 +448,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .kontak-form,
@@ -416,7 +456,8 @@ body {
   flex: 1 1 300px;
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  padding: 2rem;
+  padding: 1.5rem;
+  max-width: 500px;
 }
 
 .kontak-form {
@@ -469,12 +510,11 @@ body {
 }
 
 /* =======================
-   Client Kami
+   Client Kami - Responsive Improvements
 ======================= */
-
 .client {
   background-color: #ffffff;
-  padding: 2rem 2rem;
+  padding: 2rem 1rem;
   text-align: center;
 }
 
@@ -482,21 +522,20 @@ body {
   font-size: 1.8rem;
   margin-bottom: 2rem;
   color: #444;
-  font-family: "Segoe UI", sans-serif;
 }
 
 .client-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   flex-wrap: wrap;
   max-width: 1000px;
   margin: 0 auto;
 }
 
 .client-logo {
-  flex: 0 1 180px;
+  flex: 0 1 150px;
   padding: 1rem;
   background-color: #f9f9f9;
   border-radius: 12px;
@@ -507,8 +546,8 @@ body {
 }
 
 .client-logo img {
-  max-width: 1400px;
-  max-height: 80px;
+  max-width: 100%;
+  max-height: 60px;
   object-fit: contain;
   transition: transform 0.3s;
 }
@@ -517,33 +556,31 @@ body {
   transform: scale(1.05);
 }
 
-
+@media (max-width: 480px) {
+  .client-logo {
+    flex: 0 1 120px;
+    padding: 0.8rem;
+  }
+}
 
 /* =======================
-   Footer
+   Footer - Responsive Improvements
 ======================= */
 .site-footer {
   background-color: #1a1a1a;
   color: white;
-  padding: 3rem 2rem;
-  font-family: "Segoe UI", sans-serif;
+  padding: 3rem 1rem;
 }
 
 .footer-top {
   text-align: center;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .footer-top h2 {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  line-height: 1.4;
-}
-
-.footer-top span {
-  text-decoration: underline;
-  font-weight: 400;
 }
 
 .footer-button {
@@ -569,22 +606,25 @@ body {
   gap: 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   padding-top: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .footer-col {
   flex: 1;
   min-width: 220px;
+  padding: 0 1rem;
 }
 
 .footer-logo {
-  width: 200px;
-  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 1rem;
 }
 
 .brand-name {
   font-size: 1rem;
   color: #ccc;
-  text-decoration: underline;
 }
 
 .contact-footer h3,
@@ -619,25 +659,16 @@ body {
 
 .footer-bottom {
   text-align: center;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
   padding-top: 1rem;
   font-size: 0.9rem;
   color: #aaa;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-@media (max-width: 768px) {
-  .footer-content {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
-
-  .footer-col {
-    max-width: 400px;
-  }
-}
-
+/* =======================
+   WhatsApp Button
+======================= */
 .wa-button {
   position: fixed;
   bottom: 20px;
@@ -657,4 +688,29 @@ body {
 .wa-button img {
   width: 40px;
   height: 40px;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
 }
