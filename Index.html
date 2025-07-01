@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pitari Konsulindo Utama</title>
+  <link rel="stylesheet" href="style.css" />
+    <script>
+    let messageGlobal = "";
+
+  function handleKirim() {
+    const nama = document.getElementById("nama").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const pesan = document.getElementById("pesan").value.trim();
+
+    if (pesan === "") {
+      alert("Mohon isi pesan terlebih dahulu.");
+      return;
+    }
+
+    const emailTujuan = "pitarikonsulindoutama@gmail.com";
+    const subject = `Pesan dari ${nama}`;
+    const body = `Halo, saya ${nama} (${email}) ingin menghubungi Anda:\n\n${pesan}`;
+    const mailtoLink = `mailto:${emailTujuan}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    window.location.href = mailtoLink;
+  }
+
+
+    function kirimGmail() {
+      const emailTujuan = "info@pitari.co.id";
+      const subject = "Pesan dari Website";
+      const link = `mailto:${emailTujuan}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(messageGlobal)}`;
+      window.location.href = link;
+      tutupPopup();
+    }
+
+    function tutupPopup() {
+      document.getElementById("popupPilihan").classList.remove("show");
+    }
+
+    window.addEventListener("click", function (e) {
+      const popup = document.getElementById("popupPilihan");
+      if (e.target === popup) {
+        tutupPopup();
+      }
+    });
+    
+  </script>
+<script>
+    const translations = {
+      id: {
+        nav_home: "Beranda",
+        nav_about: "Tentang Kami",
+        nav_services: "Layanan",
+        nav_contact: "Kontak",
+        nav_lang: "ID",
+        hero_title: "PT PITARI KONSULINDO UTAMA",
+        hero_subtitle: "MENDESAIN MASA DEPAN, MEMBANGUN KEUNGGULAN",
+        hero_text: "Mitra Anda dalam merancang infrastruktur yang andal dan siap menghadapi masa depan",
+        cta_button: "Lihat Layanan",
+        tentangTitle: "Tentang Kami",
+        tentangDesc: "Selamat datang di website resmi PT Pitari Konsulindo Utama, perusahaan jasa konsultan yang bergerak di bidang perencanaan konstruksi serta inspeksi bangunan gedung dan infrastruktur. Berdiri sejak tahun 2025 dan berlokasi di Depok, Jawa Barat, Indonesia, kami berkomitmen untuk memberikan layanan yang profesional, andal, dan sesuai dengan standar teknis terbaik.",
+        tentangDesc2: " PT Pitari Konsulindo Utama hadir sebagai konsultan perencana konstruksi yang menyediakan solusi berkelanjutan untuk memenuhi kebutuhan pembangunan para klien kami. Kami berkomitmen untuk menghadirkan solusi yang inovatif, andal, dan ramah lingkungan.",
+        visi_title: "Visi",
+        visi_text: "Memberikan layanan perencanaan konstruksi yang andal, inovatif, dan ramah lingkungan, serta meningkatkan kompetensi dan daya saing tim melalui pelatihan, riset, dan inovasi yang berkelanjutan.",
+        misi_title: "Misi",
+        misi_text: "Menjadi konsultan perencana konstruksi terkemuka yang menyediakan solusi inovatif, berkualitas tinggi, dan berkelanjutan untuk pengembangan infrastruktur yang andal dan berdaya saing global.",
+        layanan_title: "Layanan Kami",
+        layanan_1: "Survey dan Topografi",
+        layanan_2: "Detail Engineering Design",
+        layanan_3: "Estimasi Biaya",
+        layanan_4: "Pengawasan Proyek",
+        layanan_5: "Inspeksi Proyek",
+        layanan_1_tittle: "Kami melakukan service untuk perencanaan awal proyek",
+        layanan_2_tittle: "Engineer kami menyiapkan dokumen detail perencanaan dan gambar kerja sesuai keinginan klien kamu.",
+        layanan_3_tittle: "Kami melayani perhitungan budget anggaran untuk proyek.",
+        layanan_4_tittle: "Kami memiliki layanan dan tim berpengalaman utk melakukan pengawasan proyek saat konatruksi.",
+        layanan_5_tittle: "Kami melayani jasa inspeksi untuk mendapatkan sertipikasi layak Fungsi ( SLF ) dan inspeksi bangunan.",
+        kontak_title: "Kontak Kami",
+        nama: "Nama Anda",
+        email: "Email Anda",
+        pesan: "Pesan Anda",
+        form_button: "Kirim Pesan",
+        alamat_kantor: "Alamat Kantor",
+        footer_button: "Hubungi Kami",
+        footer_ready: "Siap Bekerja Sama Dengan Kami?",
+        footer_contact: "Contact Us",
+        footer_nav: "Navigasi",
+        client_title: "Client Kami",
+        current_lang: "Language",
+        footer_home:  "Beranda",
+        footer_about: "Tentang Kami",
+        footer_services: "Layanan",
+        footer_contact: "Kontak"
+      },
+      en: {
+        nav_home: "Home",
+        nav_about: "About Us",
+        nav_services: "Services",
+        nav_contact: "Contact",
+        nav_lang: "EN",
+        hero_title: "PT PITARI KONSULINDO UTAMA",
+        hero_subtitle: "DESIGNING THE FUTURE, BUILDING EXCELLENCE",
+        hero_text: "Your Partner in Designing Reliable and Future-Ready Infrastructure",
+        cta_button: "View Services",
+        tentangTitle: "About Us",
+        tentangDesc: "Welcome to the official website of PT Pitari Konsulindo Utama, a consulting services company engaged in construction planning and the inspection of building and infrastructure structures. Established in 2025 and based in Depok, West Java, Indonesia, we are committed to providing professional, reliable services in accordance with the highest technical standards.",
+        tentangDesc2: "PT Pitari Konsulindo Utama serves as a construction planning consultant offering sustainable solutions to meet the development needs of our clients. We are committed to delivering innovative, dependable, and environmentally friendly solutions.",
+        visi_title: "Vision",
+        visi_text: "Providing reliable, innovative, and environmentally friendly construction planning services, while enhancing team competence and competitiveness through continuous training, research, and innovation.",
+        misi_title: "Mission",
+        misi_text: "To become a leading construction planning consultant that provides innovative, high-quality, and sustainable solutions for the development of reliable and globally competitive infrastructure.",
+        layanan_title: "Our Services",
+        layanan_1: "Survey and Topography",
+        layanan_2: "Detail Engineering Design",
+        layanan_3: "Cost Estimation",
+        layanan_4: "Project Supervision",
+        layanan_5: "Project Inspection",
+        layanan_1_tittle: "We provide services for the initial planning of projects",
+        layanan_2_tittle: "Our engineers prepare detailed planning documents and working drawings according to your preferences.",
+        layanan_3_tittle: "We provide budget estimation services for projects.",
+        layanan_4_tittle: "We offer services and an experienced team to supervise projects during the construction phase.",
+        layanan_5_tittle: "We provide inspection services for obtaining the Building Functionality Certificate (SLF) and conducting building inspections. ",
+        kontak_title: "Contact Us",
+        nama: "Your Name",
+        email: "Your Email",
+        pesan: "Your Message",
+        form_button: "Send Message",
+        alamat_kantor: "Office Address",
+        footer_button: "Contact Us",
+        footer_ready: "Ready to Work With Us?",
+        footer_contact: "Contact Us",
+        footer_nav: "Navigation",
+        client_title: "Our Clients",
+        current_lang: "Language",
+        footer_home: "Home",
+        footer_about: "About Us",
+        footer_services: "Services",
+        footer_contact: "Contact"
+        
+      }
+    };
+
+    function setLanguage(lang) {
+      for (const key in translations[lang]) {
+        const el = document.getElementById(key);
+        if (el) {
+          if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+            el.placeholder = translations[lang][key];
+          } else {
+            el.innerText = translations[lang][key];
+          }
+        }
+      }
+      document.getElementById("current-language").innerText = translations[lang].nav_lang;
+    }
+  </script>
+
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <img src="/Icon/Logo.png" alt="Logo-Perusahaan" />
+        <div class="brand-text">
+          <p class="brand-title">PITARI KONSULINDO UTAMA</p>
+          <p class="brand-subtitle">Engineers and Planners</p>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#" id="nav_home">Beranda</a></li>
+      <li><a href="#tentang" id="nav_about">Tentang Kami</a></li>
+      <li><a href="#layanan" id="nav_services">Layanan</a></li>
+      <li><a href="#kontak" id="nav_contact">Kontak</a></li>
+      <li class="dropdown-bahasa">
+        <a href="#" id="current-language">ID</a>
+        <ul class="dropdown-menu">
+          <li><a href="#" onclick="setLanguage('id')">ID</a></li>
+          <li><a href="#" onclick="setLanguage('en')">EN</a></li>
+        </ul>
+      </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Hero Section -->
+<section class="hero-new">
+  <div class="hero-box">
+    <div class="hero-text">
+      <h1 id="heroTitle">PT PITARI KONSULINDO UTAMA</h1>
+      <h2 id="heroSubtitle">DESIGNING THE FUTURE,<br>BUILDING EXCELLENCE</h2>
+      <p id="heroDesc">Your Partner in Designing Reliable and<br>Future-Ready Infrastructure</p>
+      <a href="#layanan" class="cta-button" id="cta_button">Lihat Layanan</a>
+    </div>
+    <div class="hero-image"></div>
+  </div>
+</section>
+
+
+  <!-- Tentang Kami -->
+<section class="tentang-kami" id="tentang">
+  <div class="tentang-container">
+    <div class="tentang-text">
+      <h2 id="tentangTitle">Tentang Kami</h2>
+      <p id="tentangDesc">
+        Selamat datang di website resmi PT Pitari Konsulindo Utama, perusahaan jasa konsultan yang bergerak di bidang perencanaan konstruksi serta inspeksi bangunan gedung dan infrastruktur. Berdiri sejak tahun 2025 dan berlokasi di Depok, Jawa Barat, Indonesia, kami berkomitmen untuk memberikan layanan yang profesional, andal, dan sesuai dengan standar teknis terbaik. </p>
+      <p id="tentangDesc2">PT Pitari Konsulindo Utama hadir sebagai konsultan perencana konstruksi yang menyediakan solusi berkelanjutan untuk memenuhi kebutuhan pembangunan para klien kami. Kami berkomitmen untuk menghadirkan solusi yang inovatif, andal, dan ramah lingkungan.</p>
+    </div>
+    <div class="tentang-image">
+      <img src="/Prev Img/TentangKami.jpg" alt="Tentang Kami">
+    </div>
+  </div>
+
+    <div class="visi-misi-boxes">
+    <div class="box">
+      <h3 id="visi_title">Visi</h3>
+      <p id="visi_text">
+       Memberikan layanan perencanaan konstruksi yang andal, inovatif, dan ramah lingkungan, serta meningkatkan kompetensi dan daya saing tim melalui pelatihan, riset, dan inovasi yang berkelanjutan.
+      </p>
+    </div>
+    <div class="box">
+      <h3 id="misi_title">Misi</h3>
+      <p id="misi_text">Menjadi konsultan perencana konstruksi terkemuka yang menyediakan solusi inovatif, berkualitas tinggi, dan berkelanjutan untuk pengembangan infrastruktur yang andal dan berdaya saing global.</p>
+    </div>
+    <div class="tentang bg"></div>
+  </div>
+  
+</section>
+
+  <!-- Layanan Kami -->
+<section class="layanan" id="layanan">
+  <div class="layanan-overlay">
+  <h2 class="judul-layanan" id="layanan_title">Layanan Kami</h2>
+  <div class="layanan-container">
+    <div class="layanan-box">
+      <img src="/New Icon/1.png" alt="Layanan 1">
+      <h3 id="layanan_1">Survey dan Topografi</h3>
+      <p id="layanan_1_tittle">Kami melakukan service untuk perencaan awal proyek</p>
+    </div>
+    <div class="layanan-box">
+      <img src="/New Icon/2.png" alt="Layanan 2">
+      <h3 id="layanan_2">Detail Engineering Design</h3>
+      <p id="layanan_2_tittle">Engineer kami menyiapkan dokumen detail perencanaan dan gambar kerja sesuai keinginan klien kamu.</p>
+    </div>
+    <div class="layanan-box">
+      <img src="/New Icon/3.png" alt="Layanan 3">
+      <h3 id="layanan_3">Estimasi Biaya</h3>
+      <p id="layanan_3_tittle">Kami melayani perhitungan budget anggaran untuk proyek.</p>
+    </div>
+    <div class="layanan-box">
+      <img src="/New Icon/4.png" alt="Layanan 4">
+      <h3 id="layanan_4">pengawasan Proyek</h3>
+      <p id="layanan_4_tittle">Kami memiliki layanan dan tim berpengalaman utk melakukan pengawasan proyek saat konatruksi.</p>
+    </div>
+    <div class="layanan-box">
+      <img src="/New Icon/5.png" alt="Layanan 5">
+      <h3 id="layanan_5">Inspeksi Proyek</h3>
+      <p id="layanan_5_tittle">Kami melayani jasa inspeksi untuk mendapatkan sertipikasi layak Fungsi ( SLF ) dan inspeksi bangunan.</p>
+    </div>
+    <div></div>
+    <!-- Tambah lagi kalau perlu -->
+  </div>
+</section>
+
+<!-- Kontak Kami -->
+<section class="kontak-kami" id="kontak">
+  <h2 class="section-title" id="kontak_title">Kontak Kami</h2>
+  <div class="kontak-container">
+    <div class="kontak-form">
+      <form id="formKontak">
+        <input type="text" id="nama" placeholder="Nama Anda" required />
+        <input type="email" id="email" placeholder="Email Anda" required />
+        <textarea id="pesan" placeholder="Pesan Anda" rows="5" required></textarea>
+        <button type="button" onclick="handleKirim()" id="form_button">Kirim Pesan</button>
+      </form>
+    </div>
+    <div class="kontak-info">
+      <h3 id="alamat_kantor">Alamat Kantor</h3>
+      <p>Pesona Cinere Residence Blok H 15 Depok 16434</p>
+      <p>Email: pitarikonsulindoutama@gmail.com</p>
+      <p>Telepon: (+62) 813 8202 8972</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d247.81258054723537!2d106.76771637706918!3d-6.393833998787755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1751287509798!5m2!1sid!2sid" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- Client Kami -->
+<section class="client">
+  <h3 class="client-title" id="client_title">Client Kami</h3>
+  <div class="client-container">
+    <div class="client-logo"><img src="/Client/Client 1.webp" alt="Client 1" /></div>
+    <div class="client-logo"><img src="/Client/Client 2.webp" alt="Client 2" /></div>
+    <div class="client-logo"><img src="/Client/Client 3.jpeg" alt="Client 3" /></div>
+  </div>
+</section>
+
+
+
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <h2 id="footer_ready">Siap Bekerja Sama Dengan Kami?</h2>
+      <a href="#kontak" class="footer-button" id="footer_contact">Hubungi Kami</a>
+    </div>
+
+    <div class="footer-content">
+      <div class="footer-col brand-footer">
+        <img src="Icon/Logo2.png" alt="Logo PKU" class="footer-logo" />
+        <p class="brand-name">PITARI KONSULINDO UTAMA</p>
+      </div>
+
+      <div class="footer-col contact-footer">
+        <h3>Contact Us</h3>
+        <ul>
+          <li>📍 Pesona Cinere Residence Blok H15 Depok 16434</li>
+          <li>📱 +62 - 813 - 8202 - 8972</li>
+          <li>✉️ pitarikonsulindoutama@gmail.com</li>
+          <li>📷 (Jam Operasional)</li>
+        </ul>
+      </div>
+
+      <div class="footer-col nav-footer">
+        <h3 id="footer_nav">Navigation</h3>
+        <ul>
+          <li><a href="#" id="footer_home">Beranda</a></li>
+          <li><a href="#tentang" id="footer_about">Tentang Kami</a></li>
+          <li><a href="#layanan" id="footer_services">Layanan</a></li>
+          <li><a href="#kontak" id="footer_contact">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Pitari Konsulindo Utama</p>
+    </div>
+  </footer>
+  
+  <a href="https://wa.me/6281382029072" class="wa-button" target="_blank">
+  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp">
+  </a>
+
+</body>
+</html>
+
+
