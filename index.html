@@ -327,26 +327,53 @@
     document.addEventListener('DOMContentLoaded', function() {
       setLanguage('id');
     });
-  </script>
-  <script>
-  // Mobile menu toggle
-  document.addEventListener('DOMContentLoaded', function() {
+
+  document.addEventListener('DOMContentLoaded', function () {
     const menuToggle = document.createElement('div');
     menuToggle.className = 'menu-toggle';
     menuToggle.innerHTML = '☰';
     document.querySelector('.nav-container').appendChild(menuToggle);
-    
-    menuToggle.addEventListener('click', function() {
+
+    menuToggle.addEventListener('click', function () {
       document.querySelector('.nav-links').classList.toggle('active');
     });
-    
-    // Close dropdown when clicking elsewhere
-    document.addEventListener('click', function(e) {
+
+    // Dropdown Bahasa (mobile-friendly)
+    const dropdownBahasa = document.querySelector('.dropdown-bahasa');
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+
+    dropdownBahasa.addEventListener('click', function (e) {
+      e.stopPropagation(); // Biar gak ketutup langsung
+      dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    // Close dropdown jika klik di luar dropdown
+    document.addEventListener('click', function (e) {
       if (!e.target.closest('.dropdown-bahasa')) {
-        document.querySelector('.dropdown-menu').style.display = 'none';
+        dropdownMenu.style.display = 'none';
       }
     });
   });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // ... kode toggle menu & dropdown yang tadi ...
+
+    // Ganti teks 'ID' jadi 'Language' kalau di HP
+    const currentLang = document.getElementById('current-language');
+    if (window.innerWidth <= 768) {
+      currentLang.textContent = 'Language';
+    }
+  });
+
+  window.addEventListener('resize', function () {
+  const currentLang = document.getElementById('current-language');
+  if (window.innerWidth <= 768) {
+    currentLang.textContent = 'Language';
+  } else {
+    currentLang.textContent = 'ID';
+  }
+});
 </script>
+
 </body>
 </html>
